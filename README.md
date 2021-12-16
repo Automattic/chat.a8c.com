@@ -6,7 +6,7 @@ This is NOT a fork of element-web, it's just the [released version](https://gith
 This is deployed by [a8c-matrix-infrastructure](https://github.com/Automattic/a8c-matrix-infrastructure).
 
 ## Prerequisites
-You'll need `jq` to run the `bin/release..sh` script:
+You'll need `jq` to run the [`bin/release.sh`](bin/release.sh) script:
 
 ```shell
 brew install jq
