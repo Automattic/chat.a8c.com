@@ -24,8 +24,10 @@
     ],
     "bug_report_endpoint_url": "https://element.io/bugreports/submit",
     "defaultCountryCode": "GB",
-    "showLabsSettings": false,
-    "features": { },
+    "showLabsSettings": true,
+    "features": {
+        "feature_pinning": true
+    },
     "default_federate": true,
     "default_theme": "light",
     "roomDirectory": {
