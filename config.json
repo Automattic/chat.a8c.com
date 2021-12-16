@@ -26,6 +26,7 @@
     "defaultCountryCode": "GB",
     "showLabsSettings": true,
     "features": {
+        "feature_thread": true,
         "feature_pinning": true
     },
     "default_federate": true,
