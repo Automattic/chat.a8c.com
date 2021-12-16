@@ -26,4 +26,3 @@ RELEASE=$(cat public/version)
 git commit -m "Release $RELEASE"
 ```
 
-A deployment will automatically be triggered on the DigitalOcean app.
