@@ -13,7 +13,17 @@ brew install jq
 ```
 
 ## Usage
+Download the latest Element release with the following command. The release will be extracted into the `public/` directory, and the custom [`config.json`](config.json) copied into it:
 
 ```shell
 bin/release.sh
 ```
+
+Commit the changes and push them:
+
+```shell
+RELEASE=$(cat public/version)
+git commit -m "Release $RELEASE"
+```
+
+A deployment will automatically be triggered on the DigitalOcean app.
