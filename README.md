@@ -13,7 +13,7 @@ brew install jq
 ```
 
 ## Usage
-Download the latest Element release with the following command. The release will be extracted into the `public/` directory, and the custom [`config.json`](config.json) copied into it:
+Download the latest Element release with the following command. The release will be extracted into the `public/` directory:
 
 ```shell
 bin/release.sh
