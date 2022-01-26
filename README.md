@@ -17,6 +17,7 @@ Then you can simply commit the changes and push them to issue a new release:
 ```shell
 bin/fetch.sh
 
+git add public/
 RELEASE=$(cat public/version)
 git commit -m "Release $RELEASE"
 ```
