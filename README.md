@@ -9,7 +9,7 @@ The `bin/fetch.sh` script facilitates issuing a new release. Note you need `jq`,
 The script performs the following operations:
 
 1. Download Element's latest stable release as a tar file
-2. Extract the tar file in into the `public/` directory
+2. Extract the tar file in into the `docs/` directory
 3. Replace Element's default `config.json` with [`./config.json`](config.json)
 
 Then you can simply commit the changes and push them to issue a new release:
@@ -17,7 +17,7 @@ Then you can simply commit the changes and push them to issue a new release:
 ```shell
 bin/fetch.sh
 
-git add public/
-RELEASE=$(cat public/version)
+git add docs/
+RELEASE=$(cat docs/version)
 git commit -m "Release $RELEASE"
 ```
