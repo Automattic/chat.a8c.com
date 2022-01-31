@@ -1,0 +1,37 @@
+# Writes latest element-web version in the latest-version/version file.
+
+name: Discover latest version of element-web
+
+on:
+  schedule:
+    - cron: '0 0 * * 0' # At 08:00 on Sunday
+
+jobs:
+  get-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Discover latest version
+        run: |
+          curl -sL https://api.github.com/repos/vector-im/element-web/releases/latest | \
+          jq -r ".tag_name" > latest-version/version
+
+      - name: Check for modified files
+        id: git-check
+        run: echo ::set-output name=modified::$([ -z "`git status --porcelain`" ] && echo "false" || echo "true")
+
+      - name: Assign version to environment variable
+        if: steps.git-check.outputs.modified == 'true'
+        run: |
+          echo 'ELEMENT_VERSION='$(cat latest-version/version) >> $GITHUB_ENV
+
+      - name: Commit latest version
+        if: steps.git-check.outputs.modified == 'true'
+        run: |
+          git config --global user.name 'Team Orbit'
+          git config --global user.email 'orbit-matrix@automattic.com'
+          git commit -am "Set latest release to ${{ env.ELEMENT_VERSION }}"
+          git push
