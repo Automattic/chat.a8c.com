@@ -27,7 +27,9 @@
     "showLabsSettings": true,
     "features": {
         "feature_thread": true,
-        "feature_pinning": true
+        "feature_pinning": true,
+        "feature_dnd": true,
+        "feature_custom_status": true
     },
     "default_federate": true,
     "default_theme": "light",
