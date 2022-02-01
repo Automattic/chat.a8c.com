@@ -37,5 +37,6 @@ jobs:
         run: |
           git config --global user.name 'Team Orbit'
           git config --global user.email 'orbit-matrix@automattic.com'
-          git commit -am "Set latest version to ${{ env.ELEMENT_VERSION }}"
+          git add .
+          git commit -m "Set latest version to ${{ env.ELEMENT_VERSION }}"
           git push
