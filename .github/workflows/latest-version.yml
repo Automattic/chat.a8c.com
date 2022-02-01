@@ -30,8 +30,7 @@ jobs:
 
       - name: Assign version to environment variable
         if: steps.git-check.outputs.modified == 'true'
-        run: |
-          echo 'ELEMENT_VERSION='$(cat latest-version/version) >> $GITHUB_ENV
+        run: echo 'ELEMENT_VERSION='$(cat latest-version/version) >> $GITHUB_ENV
 
       - name: Commit latest version
         if: steps.git-check.outputs.modified == 'true'

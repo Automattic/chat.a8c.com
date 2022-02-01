@@ -22,8 +22,7 @@ jobs:
             token: ${{ secrets.ACCESS_TOKEN }}
 
         - name: Assign version to environment variable
-          run: |
-            echo 'ELEMENT_VERSION='$(cat latest-version/version) >> $GITHUB_ENV
+          run: echo 'ELEMENT_VERSION='$(cat latest-version/version) >> $GITHUB_ENV
 
         - name: Assign download URL and tar name to environment variables
           run: |
@@ -31,23 +30,27 @@ jobs:
             echo 'ELEMENT_TAR_NAME='$(curl -sL https://api.github.com/repos/vector-im/element-web/releases/tags/${{ env.ELEMENT_VERSION }} | jq -r '[.assets[].name][0]') >> $GITHUB_ENV
 
         - name: Download release
-          run: |
-            curl -sL "${{ env.ELEMENT_DOWNLOAD_URL }}" --output ${{ env.ELEMENT_TAR_NAME }}
+          run: curl -sL "${{ env.ELEMENT_DOWNLOAD_URL }}" --output ${{ env.ELEMENT_TAR_NAME }}
+
+        - name: Clear docs/ directory
+          run: rm -rf docs && mkdir docs
 
         - name: Extract release into docs/ directory
           run: |
             tar xvz -f ${{ env.ELEMENT_TAR_NAME }} -C docs --strip-components=1 && \
             rm ${{ env.ELEMENT_TAR_NAME }}
 
+        - name: Install custom files from public/ directory
+          run: cp -R public/* docs/
+
         - name: Install custom config
-          run: |
-            rm docs/config.sample.json && cp config.json docs/config.json
+          run: rm docs/config.sample.json && cp config.json docs/config.json
 
         - name: Check for modified files
           id: git-check
           run: echo ::set-output name=modified::$([ -z "`git status --porcelain`" ] && echo "false" || echo "true")
 
-        - name: Commit assets and config
+        - name: Commit release
           if: steps.git-check.outputs.modified == 'true'
           run: |
             git config --global user.name 'Team Orbit'
