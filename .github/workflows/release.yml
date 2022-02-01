@@ -1,0 +1,56 @@
+# Downloads element-web for the version in latest-version/version,
+# extracts it into the docs/ directory, and commits and pushes the changes.
+
+name: Release element-web
+
+on:
+  # Trigger when the latest-version/version file changes
+  push:
+    paths:
+      - 'latest-version/*'
+
+  # Allow manual trigger from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v2
+          with:
+            # ACCESS_TOKEN is defined at https://github.com/Automattic/a8c-matrix-element/settings/secrets/actions
+            token: ${{ secrets.ACCESS_TOKEN }}
+
+        - name: Assign version to environment variable
+          run: |
+            echo 'ELEMENT_VERSION='$(cat latest-version/version) >> $GITHUB_ENV
+
+        - name: Assign download URL and tar name to environment variables
+          run: |
+            echo 'ELEMENT_DOWNLOAD_URL='$(curl -sL https://api.github.com/repos/vector-im/element-web/releases/tags/${{ env.ELEMENT_VERSION }} | jq -r '[.assets[].browser_download_url][0]') >> $GITHUB_ENV
+            echo 'ELEMENT_TAR_NAME='$(curl -sL https://api.github.com/repos/vector-im/element-web/releases/tags/${{ env.ELEMENT_VERSION }} | jq -r '[.assets[].name][0]') >> $GITHUB_ENV
+
+        - name: Download release
+          run: |
+            curl -sL "${{ env.ELEMENT_DOWNLOAD_URL }}" --output ${{ env.ELEMENT_TAR_NAME }}
+
+        - name: Extract release into docs/ directory
+          run: |
+            tar xvz -f ${{ env.ELEMENT_TAR_NAME }} -C docs --strip-components=1 && \
+            rm ${{ env.ELEMENT_TAR_NAME }}
+
+        - name: Install custom config
+          run: |
+            rm docs/config.sample.json && cp config.json docs/config.json
+
+        - name: Check for modified files
+          id: git-check
+          run: echo ::set-output name=modified::$([ -z "`git status --porcelain`" ] && echo "false" || echo "true")
+
+        - name: Commit assets and config
+          if: steps.git-check.outputs.modified == 'true'
+          run: |
+            git config --global user.name 'Team Orbit'
+            git config --global user.email 'orbit-matrix@automattic.com'
+            git commit -am "Release ${{ env.ELEMENT_VERSION }}"
+            git push
