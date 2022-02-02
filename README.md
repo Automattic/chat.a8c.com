@@ -9,7 +9,7 @@ New releases of Element are automatically deployed by GitHub Actions.
 There are three Actions at play:
 
 1. [`latest-version.yml`](.github/workflows/latest-version.yml): Checks if a new version of element-web has been released and if so, writes the version into [`latest-version/version`](latest-version/version). Scheduled to run every week.
-2. [`fetch.yml`](.github/workflows/fetch.yml): Downloads the version specified in the  [`latest-version/version`](latest-version/version) file, extracts into the [`docs/`](docs) directory, and commits the result if there are any changes. Additionally, applies a custom [`config.json`](config.json), and copies files under [`public/`](public) into [`docs/`](docs). Scheduled to when [`latest-version/version`](latest-version/version) changes.
+2. [`fetch.yml`](.github/workflows/fetch.yml): Downloads the version specified in the  [`latest-version/version`](latest-version/version) file, extracts into the [`docs/`](docs) directory, and commits the result if there are any changes. Additionally, applies a custom [`config.json`](config.json), and copies files under [`public/`](public) into [`docs/`](docs). Runs when [`latest-version/version`](latest-version/version) changes.
 3. Site is deployed on pushes to the `master` branch. We don't control this action, it's provided by GitHub Pages.
 
 You possible to **deploy manually** by launching the [`fetch.yml`](.github/workflows/fetch.yml) workflow. To do so, click the `Run workflow` button in the [workflow page](https://github.com/Automattic/a8c-matrix-element/actions/workflows/fetch.yml).
