@@ -1,7 +1,7 @@
 # Downloads element-web for the version in latest-version/version,
 # extracts it into the docs/ directory, and commits and pushes the changes.
 
-name: Release element-web
+name: Fetch a specific version of element-web
 
 on:
   # Trigger when the latest-version/version file changes
