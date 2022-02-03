@@ -40,11 +40,11 @@ jobs:
             tar xvz -f ${{ env.ELEMENT_TAR_NAME }} -C docs --strip-components=1 && \
             rm ${{ env.ELEMENT_TAR_NAME }}
 
+        - name: Remove sample config
+          run: rm docs/config.sample.json
+
         - name: Install custom files from public/ directory
           run: cp -R public/* docs/
-
-        - name: Install custom config
-          run: rm docs/config.sample.json && cp config.json docs/config.json
 
         - name: Check for modified files
           id: git-check
