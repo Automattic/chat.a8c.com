@@ -31,7 +31,7 @@
         "feature_dnd": true,
         "feature_custom_status": true
     },
-    "default_federate": true,
+    "default_federate": false,
     "default_theme": "light",
     "roomDirectory": {
         "servers": [
