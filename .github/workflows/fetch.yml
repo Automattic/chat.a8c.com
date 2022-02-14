@@ -3,14 +3,14 @@
 name: Fetch a specific version of element-web
 
 on:
+  # Allow manual trigger from the Actions tab:
+  # https://github.com/Automattic/a8c-matrix-element/actions/workflows/fetch.yml
+  workflow_dispatch:
+
   # Trigger when versions files change
   push:
     paths:
       - 'latest-versions/element'
-
-  # Allow manual trigger from the Actions tab:
-  # https://github.com/Automattic/a8c-matrix-element/actions/workflows/fetch.yml
-  workflow_dispatch:
 
 jobs:
   release:

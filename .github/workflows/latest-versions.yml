@@ -2,12 +2,12 @@
 name: Discover latest version of element-web
 
 on:
-  # Trigger every Sunday at 08:00
-  schedule: [ cron: '0 0 * * 0' ]
-
   # Allow manual trigger from the Actions tab:
   # https://github.com/Automattic/a8c-matrix-element/actions/workflows/latest-version.yml
   workflow_dispatch:
+
+  # Trigger every Sunday at 08:00
+  schedule: [ cron: '0 0 * * 0' ]
 
 jobs:
   get-release:
