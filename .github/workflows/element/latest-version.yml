@@ -1,14 +1,9 @@
 # Writes latest element-web version in the latest-version/version file.
-
 name: Discover latest version of element-web
 
 on:
-  # Trigger every Sunday at 08:00
-  schedule:
-    - cron: '0 0 * * 0'
-
-  # Allow manual trigger from the Actions tab
-  workflow_dispatch:
+  workflow_dispatch: # Allow manual trigger from the Actions tab
+  schedule: [ cron: '0 0 * * 0' ] # Trigger every Sunday at 08:00
 
 jobs:
   get-release:
@@ -16,7 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          # ACCESS_TOKEN is defined at https://github.com/Automattic/a8c-matrix-element/settings/secrets/actions
+          # The ACCESS_TOKEN secret is defined at
+          # https://github.com/Automattic/a8c-matrix-element/settings/secrets/actions
           token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Discover latest version

@@ -1,16 +1,12 @@
 # Downloads element-web for the version in latest-version/version,
 # extracts it into the docs/ directory, and commits and pushes the changes.
-
 name: Fetch a specific version of element-web
 
 on:
-  # Trigger when the latest-version/version file changes
+  workflow_dispatch: # Allow manual trigger from the Actions tab
   push:
-    paths:
-      - 'latest-version/*'
-
-  # Allow manual trigger from the Actions tab
-  workflow_dispatch:
+    paths: # Trigger when versions files change
+      - 'latest-versions/element'
 
 jobs:
   release:
@@ -18,7 +14,8 @@ jobs:
     steps:
         - uses: actions/checkout@v2
           with:
-            # ACCESS_TOKEN is defined at https://github.com/Automattic/a8c-matrix-element/settings/secrets/actions
+            # The ACCESS_TOKEN secret is defined at
+            # https://github.com/Automattic/a8c-matrix-element/settings/secrets/actions
             token: ${{ secrets.ACCESS_TOKEN }}
 
         - name: Assign version to environment variable
