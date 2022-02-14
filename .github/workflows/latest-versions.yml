@@ -3,7 +3,7 @@ name: Discover latest versions of apps
 
 on:
   # Allow manual trigger from the Actions tab:
-  # https://github.com/Automattic/a8c-matrix-element/actions/workflows/latest-version.yml
+  # https://github.com/Automattic/a8c-matrix-element/actions/workflows/latest-versions.yml
   workflow_dispatch:
 
   # Trigger every Sunday at 08:00
@@ -22,7 +22,7 @@ jobs:
       - name: Discover latest version
         run: |
           curl -sL https://api.github.com/repos/vector-im/element-web/releases/latest | \
-          jq -r ".tag_name" > latest-version/version
+          jq -r ".tag_name" > latest-versions/element
 
       - name: Check for modified files
         id: git-check
@@ -30,7 +30,7 @@ jobs:
 
       - name: Assign version to environment variable
         if: steps.git-check.outputs.modified == 'true'
-        run: echo 'ELEMENT_VERSION='$(cat latest-version/version) >> $GITHUB_ENV
+        run: echo 'ELEMENT_VERSION='$(cat latest-versions/element) >> $GITHUB_ENV
 
       - name: Commit latest version
         if: steps.git-check.outputs.modified == 'true'

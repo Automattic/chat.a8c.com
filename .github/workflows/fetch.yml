@@ -22,7 +22,7 @@ jobs:
             token: ${{ secrets.ACCESS_TOKEN }}
 
         - name: Assign version to environment variable
-          run: echo 'ELEMENT_VERSION='$(cat latest-version/version) >> $GITHUB_ENV
+          run: echo 'ELEMENT_VERSION='$(cat latest-versions/element) >> $GITHUB_ENV
 
         - name: Assign download URL and tar name to environment variables
           run: |
