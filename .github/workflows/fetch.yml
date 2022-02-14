@@ -1,6 +1,5 @@
-# Downloads element-web for the version in latest-version/version,
-# extracts it into the docs/ directory, and commits and pushes the changes.
-name: Fetch a specific version of element-web
+# Fetches apps for the versions in latest-versions/.
+name: Fetch apps
 
 on:
   # Allow manual trigger from the Actions tab:
@@ -10,7 +9,7 @@ on:
   # Trigger when versions files change
   push:
     paths:
-      - 'latest-versions/element'
+      - 'latest-versions/*'
 
 jobs:
   release:

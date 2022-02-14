@@ -1,5 +1,5 @@
-# Writes latest element-web version in the latest-version/version file.
-name: Discover latest version of element-web
+# Writes the latest version of all apps in files under latest-versions/.
+name: Discover latest versions of apps
 
 on:
   # Allow manual trigger from the Actions tab:
