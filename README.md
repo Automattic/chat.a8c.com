@@ -1,23 +1,18 @@
 # chat.a8c.com
-This repository contains the static site behind https://chat.a8c.com. The site is composed by multiple "apps":
+This repository contains the static site behind [chat.a8c.com](https://chat.a8c.com), which is composed by multiple "apps":
 
-- Element: The chat client
-- 
+- [`apps/element`](apps/element): [element-web](https://github.com/vector-im/element-web) with a config appropriate for Automattic's use cases.
+- [`apps/public`](apps/public): *static* files, like the `CNAME` required by GitHub Pages.
 
+We use GitHub actions to fetch the latest release of each app, and to deploy the site.
 
-The `public` branch of this repository is deployed to GitHub pages.
+## Overrides
+You can override any file of any app, by placing it under the same path under the `overrides` directory. For example, the `overrides/element/config.json` file will override the `apps/element/config.json` file, upon deployment. 
 
-[element-web](https://github.com/vector-im/element-web) with a config appropriate for Automattic's use cases.
+## Actions
+The following GitHub Actions are at play:
 
-This is NOT a fork of element-web, it's just the [released version](https://github.com/vector-im/element-web/releases) (i.e. the "compiled" static files) plus a custom `config.json`. This site is served by GitHub Pages.
-
-## Deployment
-New releases of Element are automatically deployed by GitHub Actions.
-
-There are three Actions at play:
-
-1. [`latest-versions.yml`](.github/workflows/latest-versions.yml): Checks if a new version of element-web has been released and if so, writes the version into [`latest-versions/element`](latest-versions/element). Scheduled to run every week.
-2. [`fetch.yml`](.github/workflows/fetch.yml): Downloads the version specified in the  [`latest-versions/element`](latest-versions/element) file, extracts into the [`docs/`](docs) directory, and commits the result if there are any changes. Additionally, applies a custom [`config.json`](overrides/element/config.json), and copies files under [`apps/public/`](apps/public) into [`docs/`](docs). Runs when [`latest-versions/element`](latest-versions/element) changes.
-3. Site is deployed on pushes to the `master` branch. We don't control this action, it's provided by GitHub Pages.
-
-You possible to **deploy manually** by launching the [`fetch.yml`](.github/workflows/fetch.yml) workflow. To do so, click the `Run workflow` button in the [workflow page](https://github.com/Automattic/a8c-matrix-element/actions/workflows/fetch.yml).
+1. Every Sunday, [discover latest versions of apps](https://github.com/Automattic/chat.a8c.com/actions/workflows/latest-versions.yml): check if a new version of each app has been released and if so, write the version in a file under [`latest-versions/`](latest-versions), for example, `latest-versions/element`. Scheduled to run every week.
+2. When a file changes under `latest-versions/`, [fetch apps](https://github.com/Automattic/chat.a8c.com/actions/workflows/fetch.yml): for each app, download the release for the version specified in its [`latest-versions/`](latest-versions) file, extract the release into the [`apps/`](apps) directory, and commit the result if there are any changes.
+3. When a file changes under `apps`, [deploy apps](https://github.com/Automattic/chat.a8c.com/actions/workflows/deploy.yml): copy each app into the `public` branch, and apply overrides.
+4. On pushes to the `public` branch, [deploy the site](https://github.com/Automattic/chat.a8c.com/actions/workflows/pages/pages-build-deployment): we don't control this action, it's provided by GitHub Pages.
