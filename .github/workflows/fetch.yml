@@ -32,19 +32,16 @@ jobs:
         - name: Download release
           run: curl -sL "${{ env.ELEMENT_DOWNLOAD_URL }}" --output ${{ env.ELEMENT_TAR_NAME }}
 
-        - name: Clear docs/ directory
-          run: rm -rf docs && mkdir docs
+        - name: Clear app directory
+          run: rm -rf apps/element && mkdir apps/element
 
-        - name: Extract release into docs/ directory
+        - name: Extract release into app directory
           run: |
-            tar xvz -f ${{ env.ELEMENT_TAR_NAME }} -C docs --strip-components=1 && \
+            tar xvz -f ${{ env.ELEMENT_TAR_NAME }} -C apps/element --strip-components=1 && \
             rm ${{ env.ELEMENT_TAR_NAME }}
 
         - name: Remove sample config
-          run: rm docs/config.sample.json
-
-        - name: Install custom files from public/ directory
-          run: cp -R public/* docs/
+          run: rm apps/element/config.sample.json
 
         - name: Check for modified files
           id: git-check
@@ -56,5 +53,5 @@ jobs:
             git config --global user.name 'Team Orbit'
             git config --global user.email 'orbit-matrix@automattic.com'
             git add .
-            git commit -m "Release ${{ env.ELEMENT_VERSION }}"
+            git commit -m "Update Element to ${{ env.ELEMENT_VERSION }}"
             git push
