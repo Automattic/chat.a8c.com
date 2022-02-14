@@ -1,5 +1,13 @@
-# a8c-matrix-element
-This repository contains [element-web](https://github.com/vector-im/element-web) with a config appropriate for Automattic's use cases.
+# chat.a8c.com
+This repository contains the static site behind https://chat.a8c.com. The site is composed by multiple "apps":
+
+- Element: The chat client
+- 
+
+
+The `public` branch of this repository is deployed to GitHub pages.
+
+[element-web](https://github.com/vector-im/element-web) with a config appropriate for Automattic's use cases.
 
 This is NOT a fork of element-web, it's just the [released version](https://github.com/vector-im/element-web/releases) (i.e. the "compiled" static files) plus a custom `config.json`. This site is served by GitHub Pages.
 
