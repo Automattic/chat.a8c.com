@@ -20,7 +20,7 @@ jobs:
         - uses: actions/checkout@v2
           with:
             # The ACCESS_TOKEN secret is defined at
-            # https://github.com/Automattic/a8c-matrix-element/settings/secrets/actions
+            # https://github.com/Automattic/chat.a8c.com/settings/secrets/actions
             token: ${{ secrets.ACCESS_TOKEN }}
 
         - name: Assign version to environment variable
