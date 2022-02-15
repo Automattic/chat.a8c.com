@@ -58,3 +58,45 @@ jobs:
             git add .
             git commit -m "Update Element to ${{ env.ELEMENT_VERSION }}"
             git push
+
+  fetch-matrix-to:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          # The ACCESS_TOKEN secret is defined at
+          # https://github.com/Automattic/chat.a8c.com/settings/secrets/actions
+          token: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Assign version to environment variable
+        run: echo 'MATRIX_TO_VERSION='$(cat latest-versions/matrix.to) >> $GITHUB_ENV
+
+      - name: Assign download URL and tar name to environment variables
+        run: |
+          echo 'MATRIX_TO_DOWNLOAD_URL='$(curl -sL https://api.github.com/repos/Automattic/matrix.to/releases/tags/${{ env.MATRIX_TO_VERSION }} | jq -r '[.assets[].browser_download_url][0]') >> $GITHUB_ENV
+          echo 'MATRIX_TO_TAR_NAME='$(curl -sL https://api.github.com/repos/Automattic/matrix.to/releases/tags/${{ env.MATRIX_TO_VERSION }} | jq -r '[.assets[].name][0]') >> $GITHUB_ENV
+
+      - name: Download release
+        run: curl -sL "${{ env.MATRIX_TO_DOWNLOAD_URL }}" --output ${{ env.MATRIX_TO_TAR_NAME }}
+
+      - name: Clear app directory
+        run: rm -rf apps/matrix.to && mkdir apps/matrix.to
+
+      - name: Extract release into app directory
+        run: |
+          tar xvz -f ${{ env.MATRIX_TO_TAR_NAME }} -C apps/matrix.to --strip-components=1 && \
+          rm ${{ env.MATRIX_TO_TAR_NAME }}
+
+      - name: Check for modified files
+        id: git-check
+        run: echo ::set-output name=modified::$([ -z "`git status --porcelain`" ] && echo "false" || echo "true")
+
+      - name: Commit release
+        if: steps.git-check.outputs.modified == 'true'
+        run: |
+          git config --global user.name 'Team Orbit'
+          git config --global user.email 'orbit-matrix@automattic.com'
+          git pull
+          git add .
+          git commit -m "Update matrix.to to ${{ env.MATRIX_TO_VERSION }}"
+          git push

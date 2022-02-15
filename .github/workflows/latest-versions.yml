@@ -39,10 +39,10 @@ jobs:
           git config --global user.email 'orbit-matrix@automattic.com'
           git pull
           git add .
-          git commit -m "Set element latest version to ${{ env.ELEMENT_VERSION }}"
+          git commit -m "Set Element latest version to ${{ env.ELEMENT_VERSION }}"
           git push
 
-  discover-version-permalink:
+  discover-version-matrix-to:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -54,7 +54,7 @@ jobs:
       - name: Discover latest version
         run: |
           curl -sL https://api.github.com/repos/Automattic/matrix.to/releases/latest | \
-          jq -r ".tag_name" > latest-versions/permalink
+          jq -r ".tag_name" > latest-versions/matrix.to
 
       - name: Check for modified files
         id: git-check
@@ -62,7 +62,7 @@ jobs:
 
       - name: Assign version to environment variable
         if: steps.git-check.outputs.modified == 'true'
-        run: echo 'PERMALINK_VERSION='$(cat latest-versions/permalink) >> $GITHUB_ENV
+        run: echo 'MATRIX_TO_VERSION='$(cat latest-versions/matrix.to) >> $GITHUB_ENV
 
       - name: Commit latest version
         if: steps.git-check.outputs.modified == 'true'
@@ -71,5 +71,5 @@ jobs:
           git config --global user.email 'orbit-matrix@automattic.com'
           git pull
           git add .
-          git commit -m "Set permalink latest version to ${{ env.PERMALINK_VERSION }}"
+          git commit -m "Set matrix.to latest version to ${{ env.MATRIX_TO_VERSION }}"
           git push
