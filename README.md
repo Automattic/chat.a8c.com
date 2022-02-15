@@ -2,7 +2,6 @@
 This repository contains the static site behind [chat.a8c.com](https://chat.a8c.com), which is composed by multiple *apps*:
 
 - [`apps/element`](apps/element): [element-web](https://github.com/vector-im/element-web) with a config appropriate for Automattic's use cases.
-- [`apps/public`](apps/public): *static* files, like the `CNAME` required by GitHub Pages.
 
 We use GitHub actions to fetch the latest release of each app, and to deploy the site.
 

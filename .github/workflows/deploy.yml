@@ -39,11 +39,13 @@ jobs:
       - name: Deploy element
         run: cp -R master/apps/element/* public/
 
-      - name: Deploy "public"
-        run: cp -R master/apps/public/* public/
+      - name: Apply element overrides
+        run: |
+          cp -Rf master/overrides/element/* public/
+          rm -rf master/overrides/element
 
-      - name: ls
-        run: ls -la master && ls -la public
+      - name: Apply remaining overrides
+        run: cp -Rf master/overrides/* public/
 
       - name: Check for modified files
         id: git-check
