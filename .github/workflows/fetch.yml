@@ -54,6 +54,7 @@ jobs:
           run: |
             git config --global user.name 'Team Orbit'
             git config --global user.email 'orbit-matrix@automattic.com'
+            git pull
             git add .
             git commit -m "Update Element to ${{ env.ELEMENT_VERSION }}"
             git push
