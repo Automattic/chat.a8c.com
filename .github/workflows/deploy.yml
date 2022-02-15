@@ -1,0 +1,61 @@
+# Deploys apps to the public branch, which is the branch from which the Pages website is served.
+name: Deploy apps
+
+on:
+  # Allow manual trigger from the Actions tab:
+  # https://github.com/Automattic/a8c-matrix-element/actions/workflows/deploy.yml
+  workflow_dispatch:
+
+  # Trigger when apps change
+  push:
+    branches:
+      - 'master'
+    paths:
+      - 'apps/*'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          # The ACCESS_TOKEN secret is defined at
+          # https://github.com/Automattic/a8c-matrix-element/settings/secrets/actions
+          token: ${{ secrets.ACCESS_TOKEN }}
+          ref: public
+          path: public
+
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+          path: master
+
+      - name: Clear public directory, but leave .git directories in place
+        run: |
+          mv public/.git public-git
+          rm -rf public/*
+          mv public-git public/.git
+
+      - name: Deploy element
+        run: cp -R master/apps/element/* public/
+
+      - name: Deploy "public"
+        run: cp -R master/apps/public/* public/
+
+      - name: ls
+        run: ls -la master && ls -la public
+
+      - name: Check for modified files
+        id: git-check
+        run: echo ::set-output name=modified::$([ -z "`git status --porcelain`" ] && echo "false" || echo "true")
+        working-directory: ./public
+
+      - name: Commit release
+        if: steps.git-check.outputs.modified == 'true'
+        working-directory: ./public
+        run: |
+          git config --global user.name 'Team Orbit'
+          git config --global user.email 'orbit-matrix@automattic.com'
+          git add .
+          git commit -m "New release"
+          git push

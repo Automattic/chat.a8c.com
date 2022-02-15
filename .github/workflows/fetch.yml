@@ -8,6 +8,8 @@ on:
 
   # Trigger when versions files change
   push:
+    branches:
+      - 'master'
     paths:
       - 'latest-versions/*'
 
