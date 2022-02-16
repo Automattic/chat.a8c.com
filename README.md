@@ -1,12 +1,13 @@
 # chat.a8c.com
 This repository contains the static site behind [chat.a8c.com](https://chat.a8c.com), which is composed by multiple *apps*:
 
-- [`apps/element`](apps/element): [element-web](https://github.com/vector-im/element-web) with a config appropriate for Automattic's use cases.
+- [`apps/element`](apps/element): [element-web](https://github.com/vector-im/element-web) with a custom config
+- [`apps/matrix.to`](apps/matrix.to): [Automattic/matrix.to](https://github.com/Automattic/matrix.to)
 
-We use GitHub actions to fetch the latest release of each app, and to deploy the site.
+We use GitHub actions to fetch the latest release of each app, and deploy the site.
 
 ## Overrides
-You can override any file of any app, by placing it under the same path under the `overrides` directory. For example, the `overrides/element/config.json` file will override the `apps/element/config.json` file, upon deployment. 
+You can override any file of any app, by placing it under the same path under the `overrides` directory. For example, `overrides/element/index.html` would override `apps/element/index.html`, upon deployment. 
 
 ## Actions
 The following GitHub Actions are at play:
