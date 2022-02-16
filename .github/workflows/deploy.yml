@@ -11,8 +11,8 @@ on:
     branches:
       - 'master'
     paths:
-      - 'apps/*'
-      - 'overrides/*'
+      - 'apps/**'
+      - 'overrides/**'
 
 jobs:
   deploy:
