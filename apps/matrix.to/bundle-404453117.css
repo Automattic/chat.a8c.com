@@ -1,0 +1,536 @@
+/*
+Copyright 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: 2px solid #f4f4f4;
+    box-sizing: border-box;
+}
+
+.spinner::before {
+    content: "";
+    display: block;
+    width: inherit;
+    height: inherit;
+    border-radius: 100%;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+    border-top-color: #666666;
+    animation: rotate 0.8s linear infinite;
+    box-sizing: border-box;
+    margin: calc(-1 * 2px);
+}
+
+.ClientListView h2 {
+    text-align: center;
+    margin: 18px 0;
+}
+
+.ClientListView .filterOption {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+}
+
+.ClientView {
+    border: 1px solid #E6E6E6;
+    border-radius: 8px;
+    margin: 16px 0;
+    padding: 16px;
+}
+
+.ClientView.isPreferred {
+    border: 3px solid #0098d4;
+    box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.05);
+}
+
+.ClientView .hostedBanner {
+    text-align: center;
+    margin-bottom: 29px;
+    padding: 4px 0;
+    line-height: 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: #E6E6E6;
+}
+
+.ClientView .header {
+    display: flex;
+}
+
+.ClientView .description {
+    flex: 1 1;
+}
+
+.ClientView h3 {
+    margin-top: 0;
+}
+
+.ClientView .clientIcon {
+    border-radius: 8px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    display: block;
+    margin-left: 16px;
+}
+
+.ClientView .platforms {
+    background-image: url('images/platform-icon-3667462834.svg');
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    padding-left: 28px;
+}
+
+.ClientView .actions a.badge {
+    display: inline-block;
+    height: 40px;
+    margin: 8px 16px 8px 0;
+}
+
+.ClientView .actions img {
+    height: 100%;
+}
+
+.ClientView .back {
+    margin-top: 22px;
+}
+
+.InstallClientView .instructions button {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    padding: 4px;
+    border: none;
+    width: 24px;
+    height: 24px;
+    margin: 8px;
+    vertical-align: middle;
+}
+
+.InstallClientView .instructions button.copy {
+    background-image: url('images/copy-1217029832.svg');
+}
+
+.InstallClientView .instructions button.tick {
+    background-image: url('images/tick-dark-2990606398.svg');
+}
+
+.PreviewView {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.PreviewView h1 {
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 8px;
+    word-wrap: anywhere;
+}
+
+.PreviewView .avatarContainer {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.PreviewView .avatar {
+    border-radius: 100%;
+    width: 64px;
+    height: 64px;
+}
+
+.PreviewView .mxSpace .avatar {
+    border-radius: 12px;
+}
+
+.PreviewView .defaultAvatar {
+    width: 64px;
+    height: 64px;
+    background-image: url('images/chat-icon-864347221.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 85%;
+}
+
+.PreviewView .spinner {
+    width: 32px;
+    height: 32px;
+}
+
+.PreviewView .avatar.loading {
+    border: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.PreviewView .identifier {
+    color: #666666;
+    font-size: 12px;
+    margin: 8px 0;
+}
+
+.PreviewView .identifier.placeholder {
+    height: 1em;
+    margin: 1em 30%;
+}
+
+.PreviewView .memberCount {
+    display: flex;
+    justify-content: center;
+    margin: 8px 0;
+}
+
+.PreviewView .memberCount.loading {
+    margin: 16px 0;
+}
+
+.PreviewView .memberCount p {
+    font-size: 12px;
+    margin: 0;
+}
+
+.PreviewView .memberCount p:not(.placeholder) {
+    padding: 4px 8px 4px 24px;
+    border-radius: 14px;
+    background-image: url(images/member-icon-3597093054.svg);
+    background-repeat: no-repeat;
+    background-position: 2px center;
+    background-color: #E6E6E6;
+}
+
+.PreviewView .memberCount p.placeholder {
+    height: 1.5em;
+    width: 100px;
+}
+
+.PreviewView .topic {
+    font-size: 12px;
+    color: #666666;
+    margin: 32px 0;
+}
+
+.PreviewView .topic.loading {
+    display: block;
+    margin: 24px 12px;
+    padding: 4px 0;
+}
+
+.PreviewView .topic.loading .placeholder {
+    height: 0.8em;
+    display: block;
+    margin: 12px 0;
+}
+
+.PreviewView .topic.loading .placeholder:nth-child(2) {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.placeholder {
+    border-radius: 1em;
+    background: linear-gradient(120deg,
+        #ddd,
+        #ddd 10%,
+        #eee calc(10% + 25px),
+        #ddd calc(10% + 50px)
+    );
+    animation: flash 2s linear infinite;
+    background-size: 200%;
+}
+
+@keyframes flash {
+    0% { background-position-x: 0; }
+    50% { background-position-x: -80%; }
+    51% { background-position-x: 80%; }
+    100% { background-position-x: 0%; }
+}
+
+.CreateLinkView h2 {
+    padding: 0 40px;
+    word-break: break-all;
+    text-align: center;
+}
+
+.CreateLinkView form {
+    margin-top: 36px;
+}
+
+.CreateLinkView form > *:not(:first-child) {
+    margin-top: 24px;
+}
+
+/*
+Copyright 2020 The Matrix.org Foundation C.I.C.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+.OpenLinkView .caption {
+    color: #666666;
+    font-size: 12px;
+}
+
+.ServerConsentView .actions label {
+    display: flex;
+    align-items: center;
+}
+
+.ServerConsentView .actions {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.ServerConsentView input[type=submit] {
+    flex: 1 1;
+    margin-left: 32px;
+}
+
+.ServerOptions div {
+    margin: 8px 0;
+}
+
+.ServerOptions label {
+    display: flex;
+    align-items: center;
+}
+
+.ServerOptions label > .line {
+    flex: 1 1;
+    border: none;
+    border-bottom: 1px solid #666666;
+    padding: 4px 0;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f4f4f4;
+    background-image: url('images/background-1224593451.svg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center -50px;
+    height: 100%;
+    width: 100%;
+    font-size: 14px;
+    color: #333333;
+    padding: 120px 0 0 0;
+    margin: 0;
+}
+
+noscript {
+    display: block;
+    padding: 20px;
+}
+
+p { line-height: 150%; }
+
+a { text-decoration: none; }
+
+h1 { font-size: 24px; }
+
+h2 { font-size: 21px; }
+
+h3 { font-size: 16px; }
+
+body,
+button,
+input,
+textarea {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-style: normal;
+}
+
+button, input[type=submit] {
+    cursor: pointer;
+}
+
+button, input {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    margin: 0 8px 0 0;
+}
+
+.RootView {
+    margin: 0 auto;
+    max-width: 480px;
+    width: 100%;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0px 18px 24px rgba(0, 0, 0, 0.06);
+}
+
+.card, .footer {
+    padding: 2rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        background-image: none;
+        background-color: #ffffff;
+        padding: 0;
+    }
+
+    .card {
+        border-radius: unset;
+        box-shadow: unset;
+    }
+}
+
+.footer .links li:not(:first-child) {
+    margin-left: 0.5em;
+}
+
+.footer .links li:not(:first-child)::before {
+    content: "·";
+    margin-right: 0.5em;
+}
+
+.footer .links li {
+    display: inline-block;
+}
+
+.footer .links {
+    font-size: 12px;
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    color: #0098d4;
+}
+
+button.text {
+    color: #0098d4;
+}
+
+button.text {
+    background: none;
+    border: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: inherit;
+    padding: 8px 0;
+    margin: -8px 0;
+}
+
+button.text:hover {
+    cursor: pointer;
+}
+
+.primary, .secondary {
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    padding: 12px 8px;
+    margin: 8px 0;
+}
+
+.secondary {
+    background: #ffffff;
+    color: #0098d4;
+    border: 1px solid #0098d4;
+    border-radius: 32px;
+}
+
+.primary {
+    background: #0098d4;
+    color: #ffffff;
+    border-radius: 32px;
+}
+
+.primary.icon, .secondary.icon {
+    background-repeat: no-repeat;
+    background-position: 12px center;
+}
+
+.icon.link { background-image: url('images/link-3835920055.svg'); }
+
+.icon.tick { background-image: url('images/tick-1435405227.svg'); }
+
+.icon.copy { background-image: url('images/copy-1217029832.svg'); }
+
+button.primary, input[type='submit'].primary, button.secondary, input[type='submit'].secondary {
+    border: none;
+    font-size: inherit;
+}
+
+input[type='text'].large {
+    width: 100%;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 16px;
+    font-size: 14px;
+}
+
+.fullwidth {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.LoadServerPolicyView {
+    display: flex;
+}
+
+.LoadServerPolicyView .spinner {
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
+}
+
+.LoadServerPolicyView h2 {
+    margin-top: 0;
+}
