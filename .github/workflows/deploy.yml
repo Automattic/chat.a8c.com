@@ -12,6 +12,7 @@ on:
       - 'master'
     paths:
       - 'apps/*'
+      - 'overrides/*'
 
 jobs:
   deploy:
