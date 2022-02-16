@@ -44,6 +44,9 @@ jobs:
           cp -Rf master/overrides/element/* public/
           rm -rf master/overrides/element
 
+      - name: Deploy matrix.to
+        run: cp -R master/apps/matrix.to public/permalink
+
       - name: Apply remaining overrides
         run: cp -Rf master/overrides/* public/
 
