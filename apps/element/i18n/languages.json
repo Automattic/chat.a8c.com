@@ -8,7 +8,7 @@
         "label": "Català"
     },
     "cs": {
-        "fileName": "cs.0df145e.json",
+        "fileName": "cs.a771077.json",
         "label": "čeština"
     },
     "da": {
@@ -16,7 +16,7 @@
         "label": "Dansk"
     },
     "de": {
-        "fileName": "de_DE.0db76cb.json",
+        "fileName": "de_DE.05a7bd3.json",
         "label": "Deutsch"
     },
     "el": {
@@ -24,7 +24,7 @@
         "label": "Ελληνικά"
     },
     "en": {
-        "fileName": "en_EN.0e040d0.json",
+        "fileName": "en_EN.1a7a60a.json",
         "label": "English"
     },
     "en-us": {
@@ -36,11 +36,11 @@
         "label": "Esperanto"
     },
     "es": {
-        "fileName": "es.5690a30.json",
+        "fileName": "es.7f4cab7.json",
         "label": "Español"
     },
     "et": {
-        "fileName": "et.66c390f.json",
+        "fileName": "et.608d7bb.json",
         "label": "Eesti"
     },
     "eu": {
@@ -48,19 +48,19 @@
         "label": "Euskara"
     },
     "fi": {
-        "fileName": "fi.abae61d.json",
+        "fileName": "fi.c1b114b.json",
         "label": "Suomi"
     },
     "fr": {
-        "fileName": "fr.8d64bef.json",
+        "fileName": "fr.d40b576.json",
         "label": "Français"
     },
     "gl": {
-        "fileName": "gl.c845344.json",
+        "fileName": "gl.c96aa32.json",
         "label": "Galego"
     },
     "he": {
-        "fileName": "he.95adbaa.json",
+        "fileName": "he.b8ecff6.json",
         "label": "עברית"
     },
     "hi": {
@@ -68,11 +68,11 @@
         "label": "हिन्दी"
     },
     "hu": {
-        "fileName": "hu.0262943.json",
+        "fileName": "hu.dcf28ab.json",
         "label": "Magyar"
     },
     "id": {
-        "fileName": "id.de1e2c7.json",
+        "fileName": "id.7602521.json",
         "label": "Bahasa Indonesia"
     },
     "is": {
@@ -80,16 +80,12 @@
         "label": "íslenska"
     },
     "it": {
-        "fileName": "it.6bc7cf8.json",
+        "fileName": "it.bb8e50b.json",
         "label": "Italiano"
     },
     "ja": {
-        "fileName": "ja.3eaa1fa.json",
+        "fileName": "ja.3d4b207.json",
         "label": "日本語"
-    },
-    "jbo": {
-        "fileName": "jbo.8701e0d.json",
-        "label": "banjubu'o"
     },
     "kab": {
         "fileName": "kab.19b8c58.json",
@@ -116,11 +112,11 @@
         "label": "Nederlands"
     },
     "nn": {
-        "fileName": "nn.9b62ff1.json",
+        "fileName": "nn.5c47acb.json",
         "label": "Norsk Nynorsk"
     },
     "pl": {
-        "fileName": "pl.5e4c7a3.json",
+        "fileName": "pl.4589519.json",
         "label": "Polski"
     },
     "pt": {
@@ -136,11 +132,11 @@
         "label": "Русский"
     },
     "sk": {
-        "fileName": "sk.5187033.json",
+        "fileName": "sk.23e7810.json",
         "label": "Slovenčina"
     },
     "sq": {
-        "fileName": "sq.ea0ee32.json",
+        "fileName": "sq.747e137.json",
         "label": "Shqip"
     },
     "sr": {
@@ -148,7 +144,7 @@
         "label": "српски"
     },
     "sv": {
-        "fileName": "sv.932e734.json",
+        "fileName": "sv.4007249.json",
         "label": "Svenska"
     },
     "te": {
@@ -164,7 +160,7 @@
         "label": "Türkçe"
     },
     "uk": {
-        "fileName": "uk.066ac8c.json",
+        "fileName": "uk.d542f21.json",
         "label": "українська мова"
     },
     "vi": {
@@ -180,7 +176,7 @@
         "label": "简体中文"
     },
     "zh-hant": {
-        "fileName": "zh_Hant.3af0e9e.json",
+        "fileName": "zh_Hant.c06d330.json",
         "label": "繁體中文"
     }
 }
