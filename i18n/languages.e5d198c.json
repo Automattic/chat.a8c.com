@@ -1,0 +1,182 @@
+{
+    "bg": {
+        "fileName": "bg.c63ced8.json",
+        "label": "Български"
+    },
+    "ca": {
+        "fileName": "ca.023c0d5.json",
+        "label": "Català"
+    },
+    "cs": {
+        "fileName": "cs.b99b400.json",
+        "label": "čeština"
+    },
+    "da": {
+        "fileName": "da.a97d8b9.json",
+        "label": "Dansk"
+    },
+    "de": {
+        "fileName": "de_DE.671b79b.json",
+        "label": "Deutsch"
+    },
+    "el": {
+        "fileName": "el.6865300.json",
+        "label": "Ελληνικά"
+    },
+    "en": {
+        "fileName": "en_EN.30d1b17.json",
+        "label": "English"
+    },
+    "en-us": {
+        "fileName": "en_US.abb8c84.json",
+        "label": "English (US)"
+    },
+    "eo": {
+        "fileName": "eo.468ea0a.json",
+        "label": "Esperanto"
+    },
+    "es": {
+        "fileName": "es.08d611d.json",
+        "label": "Español"
+    },
+    "et": {
+        "fileName": "et.d58d5bf.json",
+        "label": "Eesti"
+    },
+    "eu": {
+        "fileName": "eu.c55575b.json",
+        "label": "Euskara"
+    },
+    "fi": {
+        "fileName": "fi.87ad23f.json",
+        "label": "Suomi"
+    },
+    "fr": {
+        "fileName": "fr.274d45f.json",
+        "label": "Français"
+    },
+    "gl": {
+        "fileName": "gl.b90361a.json",
+        "label": "Galego"
+    },
+    "he": {
+        "fileName": "he.cd57a2a.json",
+        "label": "עברית"
+    },
+    "hi": {
+        "fileName": "hi.3c375ef.json",
+        "label": "हिन्दी"
+    },
+    "hu": {
+        "fileName": "hu.a01037d.json",
+        "label": "Magyar"
+    },
+    "id": {
+        "fileName": "id.be58352.json",
+        "label": "Bahasa Indonesia"
+    },
+    "is": {
+        "fileName": "is.79ab745.json",
+        "label": "íslenska"
+    },
+    "it": {
+        "fileName": "it.928490b.json",
+        "label": "Italiano"
+    },
+    "ja": {
+        "fileName": "ja.7db082f.json",
+        "label": "日本語"
+    },
+    "kab": {
+        "fileName": "kab.19b8c58.json",
+        "label": "Taqbaylit"
+    },
+    "ko": {
+        "fileName": "ko.092a0e7.json",
+        "label": "한국어"
+    },
+    "lt": {
+        "fileName": "lt.44663d4.json",
+        "label": "Lietuvių"
+    },
+    "lv": {
+        "fileName": "lv.1a83cba.json",
+        "label": "Latviešu"
+    },
+    "nb-no": {
+        "fileName": "nb_NO.1679c1a.json",
+        "label": "Norwegian Bokmål"
+    },
+    "nl": {
+        "fileName": "nl.6ecb1bd.json",
+        "label": "Nederlands"
+    },
+    "nn": {
+        "fileName": "nn.d77a5aa.json",
+        "label": "Norsk Nynorsk"
+    },
+    "pl": {
+        "fileName": "pl.f08c6b3.json",
+        "label": "Polski"
+    },
+    "pt": {
+        "fileName": "pt.b6d0c8d.json",
+        "label": "Português"
+    },
+    "pt-br": {
+        "fileName": "pt_BR.4b7e29d.json",
+        "label": "Português do Brasil"
+    },
+    "ru": {
+        "fileName": "ru.bf969b3.json",
+        "label": "Русский"
+    },
+    "sk": {
+        "fileName": "sk.4651ad9.json",
+        "label": "Slovenčina"
+    },
+    "sq": {
+        "fileName": "sq.477ebe0.json",
+        "label": "Shqip"
+    },
+    "sr": {
+        "fileName": "sr.701eec9.json",
+        "label": "српски"
+    },
+    "sv": {
+        "fileName": "sv.c0195d4.json",
+        "label": "Svenska"
+    },
+    "te": {
+        "fileName": "te.cd1c6fd.json",
+        "label": "తెలుగు"
+    },
+    "th": {
+        "fileName": "th.fd58cd9.json",
+        "label": "ไทย"
+    },
+    "tr": {
+        "fileName": "tr.dfd9eb6.json",
+        "label": "Türkçe"
+    },
+    "uk": {
+        "fileName": "uk.edecea1.json",
+        "label": "українська мова"
+    },
+    "vi": {
+        "fileName": "vi.db5cabd.json",
+        "label": "Tiếng Việt"
+    },
+    "vls": {
+        "fileName": "vls.8abb0eb.json",
+        "label": "West-Vlaams"
+    },
+    "zh-hans": {
+        "fileName": "zh_Hans.d93b269.json",
+        "label": "简体中文"
+    },
+    "zh-hant": {
+        "fileName": "zh_Hant.9494dd5.json",
+        "label": "繁體中文"
+    }
+}
