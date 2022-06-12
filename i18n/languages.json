@@ -24,7 +24,7 @@
         "label": "Ελληνικά"
     },
     "en": {
-        "fileName": "en_EN.3ffff17.json",
+        "fileName": "en_EN.4a02742.json",
         "label": "English"
     },
     "en-us": {
@@ -94,6 +94,10 @@
     "ko": {
         "fileName": "ko.092a0e7.json",
         "label": "한국어"
+    },
+    "lo": {
+        "fileName": "lo.01749d2.json",
+        "label": "ລາວ"
     },
     "lt": {
         "fileName": "lt.44663d4.json",
