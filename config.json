@@ -8,9 +8,6 @@
             "base_url": "https://vector.im"
         }
     },
-    "embeddedPages": {
-        "homeUrl": "https://chat.a8c.com/home.html"
-    },
     "permalinkPrefix": "https://chat.a8c.com/permalink",
     "disable_custom_urls": false,
     "disable_guests": false,
