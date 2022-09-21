@@ -3,7 +3,7 @@ name: Discover latest versions of apps
 
 on:
   # Allow manual trigger from the Actions tab:
-  # https://github.com/Automattic/a8c-matrix-element/actions/workflows/latest-versions.yml
+  # https://github.com/Automattic/chat.a8c.com/actions/workflows/latest-versions.yml
   workflow_dispatch:
 
   # Trigger every Sunday at 08:00

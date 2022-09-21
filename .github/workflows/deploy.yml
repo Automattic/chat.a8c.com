@@ -3,7 +3,7 @@ name: Deploy apps
 
 on:
   # Allow manual trigger from the Actions tab:
-  # https://github.com/Automattic/a8c-matrix-element/actions/workflows/deploy.yml
+  # https://github.com/Automattic/chat.a8c.com/actions/workflows/deploy.yml
   workflow_dispatch:
 
   # Trigger when apps change
