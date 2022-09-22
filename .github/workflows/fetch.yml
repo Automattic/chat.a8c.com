@@ -3,7 +3,7 @@ name: Fetch apps
 
 on:
   # Allow manual trigger from the Actions tab:
-  # https://github.com/Automattic/a8c-matrix-element/actions/workflows/fetch.yml
+  # https://github.com/Automattic/chat.a8c.com/actions/workflows/fetch.yml
   workflow_dispatch:
 
   # Trigger when versions files change
