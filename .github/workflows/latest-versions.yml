@@ -6,8 +6,8 @@ on:
   # https://github.com/Automattic/chat.a8c.com/actions/workflows/latest-versions.yml
   workflow_dispatch:
 
-  # Trigger every Sunday at 08:00
-  schedule: [ cron: '0 0 * * 0' ]
+  # Trigger everyday at 00:00 UTC
+  schedule: [ cron: '0 0 * * *' ]
 
 jobs:
   discover-version-element:
