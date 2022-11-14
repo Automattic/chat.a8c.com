@@ -21,8 +21,12 @@ jobs:
 
       - name: Discover latest version
         run: |
-          curl -sL https://api.github.com/repos/vector-im/element-web/releases/latest | \
-          jq -r ".tag_name" > latest-versions/element
+          latest_version=$(curl -sL https://api.github.com/repos/vector-im/element-web/releases/latest | \
+          jq -r ".tag_name")
+          if [ $latest_version != "null" ]
+          then
+            echo $latest_version > latest-versions/element
+          fi
 
       - name: Check for modified files
         id: git-check
