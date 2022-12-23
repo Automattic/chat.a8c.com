@@ -57,8 +57,12 @@ jobs:
 
       - name: Discover latest version
         run: |
-          curl -sL https://api.github.com/repos/Automattic/matrix.to/releases/latest | \
-          jq -r ".tag_name" > latest-versions/matrix.to
+          latest_version=$(curl -sL https://api.github.com/repos/Automattic/matrix.to/releases/latest | \
+          jq -r ".tag_name")
+          if [ $latest_version != "null" ]
+          then
+            echo $latest_version > latest-versions/matrix.to
+          fi
 
       - name: Check for modified files
         id: git-check
