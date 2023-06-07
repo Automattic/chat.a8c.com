@@ -28,7 +28,7 @@
         style-src 'self' 'unsafe-inline' ;
         script-src 'self' 'wasm-unsafe-eval' https://www.recaptcha.net/recaptcha/ https://www.gstatic.com/recaptcha/ ;
         img-src * blob: data:;
-        connect-src *;
+        connect-src * blob:;
         font-src 'self' data: ;
         media-src * blob: data:;
         child-src * blob: data:;
@@ -38,21 +38,21 @@
         manifest-src 'self' ;
     ">
     
-           <link rel="stylesheet" href="bundles/053bdb8bedced659df10/bundle.css">
+           <link rel="stylesheet" href="bundles/f6c0c1cc5e06bd79d7d7/bundle.css">
         
-           <link rel="stylesheet" disabled="disabled" data-mx-theme="Legacy-light" title="Legacy-light" href="bundles/053bdb8bedced659df10/theme-legacy-light.css">
+           <link rel="stylesheet" disabled="disabled" data-mx-theme="Legacy-light" title="Legacy-light" href="bundles/f6c0c1cc5e06bd79d7d7/theme-legacy-light.css">
         
-           <link rel="stylesheet" disabled="disabled" data-mx-theme="Legacy-dark" title="Legacy-dark" href="bundles/053bdb8bedced659df10/theme-legacy-dark.css">
+           <link rel="stylesheet" disabled="disabled" data-mx-theme="Legacy-dark" title="Legacy-dark" href="bundles/f6c0c1cc5e06bd79d7d7/theme-legacy-dark.css">
         
-           <link rel="stylesheet" disabled="disabled" data-mx-theme="Light" title="Light" href="bundles/053bdb8bedced659df10/theme-light.css">
+           <link rel="stylesheet" disabled="disabled" data-mx-theme="Light" title="Light" href="bundles/f6c0c1cc5e06bd79d7d7/theme-light.css">
         
-           <link rel="stylesheet" disabled="disabled" data-mx-theme="Light-high-contrast" title="Light-high-contrast" href="bundles/053bdb8bedced659df10/theme-light-high-contrast.css">
+           <link rel="stylesheet" disabled="disabled" data-mx-theme="Light-high-contrast" title="Light-high-contrast" href="bundles/f6c0c1cc5e06bd79d7d7/theme-light-high-contrast.css">
         
-           <link rel="stylesheet" disabled="disabled" data-mx-theme="Dark" title="Dark" href="bundles/053bdb8bedced659df10/theme-dark.css">
+           <link rel="stylesheet" disabled="disabled" data-mx-theme="Dark" title="Dark" href="bundles/f6c0c1cc5e06bd79d7d7/theme-dark.css">
         
-           <link rel="stylesheet" disabled="disabled" data-mx-theme="Light-custom" title="Light-custom" href="bundles/053bdb8bedced659df10/theme-light-custom.css">
+           <link rel="stylesheet" disabled="disabled" data-mx-theme="Light-custom" title="Light-custom" href="bundles/f6c0c1cc5e06bd79d7d7/theme-light-custom.css">
         
-           <link rel="stylesheet" disabled="disabled" data-mx-theme="Dark-custom" title="Dark-custom" href="bundles/053bdb8bedced659df10/theme-dark-custom.css">
+           <link rel="stylesheet" disabled="disabled" data-mx-theme="Dark-custom" title="Dark-custom" href="bundles/f6c0c1cc5e06bd79d7d7/theme-dark-custom.css">
         
 
     
@@ -77,12 +77,12 @@
   <body style="height: 100%; margin: 0;">
     <noscript>Sorry, Element requires JavaScript to be enabled.</noscript> <!-- TODO: Translate this? -->
     <section id="matrixchat" style="height: 100%;" class="notranslate"></section>
-    <script src="bundles/053bdb8bedced659df10/bundle.js"></script>
+    <script src="bundles/f6c0c1cc5e06bd79d7d7/bundle.js"></script>
 
     <!-- Legacy supporting Prefetch images -->
     <img src="img/warning.30e1625.svg" aria-hidden alt="" width="24" height="23" style="visibility: hidden; position: absolute; top: 0px; left: 0px;"/>
     <img src="img/e2e/warning.d370b49.svg" aria-hidden alt="" width="24" height="23" style="visibility: hidden; position: absolute; top: 0px; left: 0px;"/>
-    <img src="img/feather-customised/warning-triangle.f73f7c8.svg" aria-hidden alt="" width="24" height="23" style="visibility: hidden; position: absolute; top: 0px; left: 0px;"/>
+    <img src="img/feather-customised/warning-triangle.cbf823d.svg" aria-hidden alt="" width="24" height="23" style="visibility: hidden; position: absolute; top: 0px; left: 0px;"/>
     <img src="img/format/bold.1075338.svg" aria-hidden alt="" width="25" height="22" style="visibility: hidden; position: absolute; top: 0px; left: 0px;"/>
     <img src="img/format/code.ee67228.svg" aria-hidden alt="" width="25" height="22" style="visibility: hidden; position: absolute; top: 0px; left: 0px;"/>
     <img src="img/format/italics.395da20.svg" aria-hidden alt="" width="25" height="22" style="visibility: hidden; position: absolute; top: 0px; left: 0px;"/>
@@ -108,6 +108,10 @@
     <audio id="busyAudio">
         <source src="media/busy.ogg" type="audio/ogg" />
         <source src="media/busy.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="errorAudio">
+        <source src="media/error.ogg" type="audio/ogg" />
+        <source src="media/error.mp3" type="audio/mpeg" />
     </audio>
     <audio id="remoteAudio"></audio>
     <!-- let CSS themes pass constants to the app -->
