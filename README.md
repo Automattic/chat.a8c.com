@@ -24,7 +24,7 @@ GitHub actions are [automatically provided](https://docs.github.com/en/actions/s
 >
 > For example, if a workflow run pushes code using the repository's `GITHUB_TOKEN`, a new workflow will not run even when the repository contains a workflow configured to run when `push` events occur.
 
-For this reason, since we do need to chain actions, a [Personal Access Token (PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) must be provided. At the moment, the PAT used belongs to [@psrpinto](https://github.com/psrpinto). If you need to provided a different PAT, you can do so as follows.
+For this reason, since we do need to chain actions, a [Personal Access Token (PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) must be provided. At the moment, the PAT used belongs to [@ashfame](https://github.com/ashfame). If you need to provide a different PAT, you can do so as follows.
 
 First, [create a Personal Access Token](https://github.com/settings/tokens/new) with the following permissions:
 
