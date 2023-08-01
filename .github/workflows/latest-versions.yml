@@ -3,7 +3,7 @@ name: Discover latest versions of apps
 
 on:
   # Allow manual trigger from the Actions tab:
-  # https://github.com/Automattic/chat.a8c.com/actions/workflows/latest-versions.yml
+  # https://github.com/Automattic/matrix.wordpress.net/actions/workflows/latest-versions.yml
   workflow_dispatch:
 
   # Trigger everyday at 00:00 UTC
@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           # The ACCESS_TOKEN secret is defined at
-          # https://github.com/Automattic/chat.a8c.com/settings/secrets/actions
+          # https://github.com/Automattic/matrix.wordpress.net/settings/secrets/actions
           token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Discover latest version
@@ -52,7 +52,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           # The ACCESS_TOKEN secret is defined at
-          # https://github.com/Automattic/chat.a8c.com/settings/secrets/actions
+          # https://github.com/Automattic/matrix.wordpress.net/settings/secrets/actions
           token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Discover latest version

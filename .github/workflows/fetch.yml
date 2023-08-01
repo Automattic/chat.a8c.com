@@ -3,7 +3,7 @@ name: Fetch apps
 
 on:
   # Allow manual trigger from the Actions tab:
-  # https://github.com/Automattic/chat.a8c.com/actions/workflows/fetch.yml
+  # https://github.com/Automattic/matrix.wordpress.net/actions/workflows/fetch.yml
   workflow_dispatch:
 
   # Trigger when versions files change
@@ -20,7 +20,7 @@ jobs:
         - uses: actions/checkout@v2
           with:
             # The ACCESS_TOKEN secret is defined at
-            # https://github.com/Automattic/chat.a8c.com/settings/secrets/actions
+            # https://github.com/Automattic/matrix.wordpress.net/settings/secrets/actions
             token: ${{ secrets.ACCESS_TOKEN }}
 
         - name: Assign version to environment variable
@@ -65,7 +65,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           # The ACCESS_TOKEN secret is defined at
-          # https://github.com/Automattic/chat.a8c.com/settings/secrets/actions
+          # https://github.com/Automattic/matrix.wordpress.net/settings/secrets/actions
           token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Assign version to environment variable

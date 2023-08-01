@@ -1,5 +1,5 @@
-# chat.a8c.com
-This repository contains the static site behind [chat.a8c.com](https://chat.a8c.com), which is composed by multiple *apps*:
+# matrix.wordpress.net
+This repository contains the static site behind dotorg-element, which is composed by multiple *apps*:
 
 - [`apps/element`](apps/element): [element-web](https://github.com/vector-im/element-web) with a custom config
 - [`apps/matrix.to`](apps/matrix.to): [Automattic/matrix.to](https://github.com/Automattic/matrix.to)
@@ -12,10 +12,10 @@ You can override any file of any app, by placing it under the same path under th
 ## Actions
 The following GitHub Actions are at play:
 
-1. **Every day at 00:00 UTC, [discover latest versions of apps](https://github.com/Automattic/chat.a8c.com/actions/workflows/latest-versions.yml)**: check if a new version of each app has been released and if so, write the version in a file under [`latest-versions/`](latest-versions), for example, `latest-versions/element`.
-2. **When a file changes under `latest-versions/`, [fetch apps](https://github.com/Automattic/chat.a8c.com/actions/workflows/fetch.yml)**: for each app, download the release for the version specified in its [`latest-versions/`](latest-versions) file, extract the release into the [`apps/`](apps) directory, and commit the result if there are any changes.
-3. **When a file changes under `apps`, [deploy apps](https://github.com/Automattic/chat.a8c.com/actions/workflows/deploy.yml)**: copy each app into the `public` branch, and apply overrides.
-4. **On pushes to the `public` branch, [deploy the site](https://github.com/Automattic/chat.a8c.com/actions/workflows/pages/pages-build-deployment)**: we don't control this action, it's provided by GitHub Pages.
+1. **Every day at 00:00 UTC, [discover latest versions of apps](https://github.com/Automattic/matrix.wordpress.net/actions/workflows/latest-versions.yml)**: check if a new version of each app has been released and if so, write the version in a file under [`latest-versions/`](latest-versions), for example, `latest-versions/element`.
+2. **When a file changes under `latest-versions/`, [fetch apps](https://github.com/Automattic/matrix.wordpress.net/actions/workflows/fetch.yml)**: for each app, download the release for the version specified in its [`latest-versions/`](latest-versions) file, extract the release into the [`apps/`](apps) directory, and commit the result if there are any changes.
+3. **When a file changes under `apps`, [deploy apps](https://github.com/Automattic/matrix.wordpress.net/actions/workflows/deploy.yml)**: copy each app into the `public` branch, and apply overrides.
+4. **On pushes to the `public` branch, [deploy the site](https://github.com/Automattic/matrix.wordpress.net/actions/workflows/pages/pages-build-deployment)**: we don't control this action, it's provided by GitHub Pages.
 
 ### Access token
 GitHub actions are [automatically provided](https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow) with a `GITHUB_TOKEN`, so normally you don't need to provide your own token. **However**, using this default token will prevent chaining of actions, i.e. you cannot run an action as a result of another action:
@@ -34,10 +34,10 @@ First, [create a Personal Access Token](https://github.com/settings/tokens/new) 
 
 Make sure it has no expiration and that you give it a meaningful name so future you doesn't accidentally delete it, e.g. `github-actions-chat-a8c-com`.
 
-Once you have the access token, you must enter it in the [*Action secrets* section](https://github.com/Automattic/chat.a8c.com/settings/secrets/actions) of the repository's Settings. Once in that page, proceed as follows:
+Once you have the access token, you must enter it in the [*Action secrets* section](https://github.com/Automattic/matrix.wordpress.net/settings/secrets/actions) of the repository's Settings. Once in that page, proceed as follows:
 
 1. Remove the `ACCESS_TOKEN` secret under *Repository secrets*
-2. Click [Create a new Repository secret](https://github.com/Automattic/chat.a8c.com/settings/secrets/actions/new)
+2. Click [Create a new Repository secret](https://github.com/Automattic/matrix.wordpress.net/settings/secrets/actions/new)
 3. Use `ACCESS_TOKEN` as the secret's name
 4. Generate a random password with your password manager or equivalent tool
 5. Enter the generated password in the *Secret* field
