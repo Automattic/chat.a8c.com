@@ -43,6 +43,15 @@
     "settingDefaults": {
         "breadcrumbs": true
     },
+    "branding": {
+        "auth_header_logo_url": "https://s.w.org/style/images/about/WordPress-logotype-wmark.png",
+        "auth_footer_links": [
+            { "text": "FAQ", "url": "https://community.wordpress.org/#faq" }
+        ]
+    },
+    "embedded_pages": {
+        "login_for_welcome": true
+    },
     "jitsi": {
         "preferredDomain": "jitsi.riot.im"
     }
